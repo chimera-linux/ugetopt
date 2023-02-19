@@ -372,7 +372,7 @@ static void add_short_options(struct getopt_control *ctl, char *options)
 		memcpy(&ctl->optstr[1], options, optlen + 1);
 	} else {
 		ctl->optstr = strdup(options);
-		if (ctl->optstr) abort();
+		if (!ctl->optstr) abort();
 	}
 	if (!ctl->optstr)
 		err(1, "getopt");
