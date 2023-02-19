@@ -1,5 +1,5 @@
 '\" t
-.\"     Title: getopt
+.\"     Title: ugetopt
 .\"    Author: [see the "AUTHOR(S)" section]
 .\" Generator: Asciidoctor 2.0.16
 .\"      Date: 2023-02-19
@@ -7,7 +7,7 @@
 .\"    Source: util-linux {release-version}
 .\"  Language: English
 .\"
-.TH "GETOPT" "1" "2023-02-19" "util\-linux {release\-version}" "User Commands"
+.TH "UGETOPT" "1" "2023-02-19" "util\-linux {release\-version}" "User Commands"
 .ie \n(.g .ds Aq \(aq
 .el       .ds Aq '
 .ss \n[.ss] 0
@@ -28,23 +28,23 @@
 .  LINKSTYLE blue R < >
 .\}
 .SH "NAME"
-getopt \- parse command options (enhanced)
+ugetopt \- parse command options (enhanced)
 .SH "SYNOPSIS"
 .sp
-\fBgetopt\fP \fIoptstring\fP \fIparameters\fP
+\fBugetopt\fP \fIoptstring\fP \fIparameters\fP
 .sp
-\fBgetopt\fP [options] [\fB\-\-\fP] \fIoptstring\fP \fIparameters\fP
+\fBugetopt\fP [options] [\fB\-\-\fP] \fIoptstring\fP \fIparameters\fP
 .sp
-\fBgetopt\fP [options] \fB\-o\fP|\fB\-\-options\fP \fIoptstring\fP [options] [\fB\-\-\fP] \fIparameters\fP
+\fBugetopt\fP [options] \fB\-o\fP|\fB\-\-options\fP \fIoptstring\fP [options] [\fB\-\-\fP] \fIparameters\fP
 .SH "DESCRIPTION"
 .sp
-\fBgetopt\fP is used to break up (\fIparse\fP) options in command lines for easy parsing by shell procedures, and to check for valid options. It uses the GNU \fBgetopt\fP(3) routines to do this.
+\fBugetopt\fP is used to break up (\fIparse\fP) options in command lines for easy parsing by shell procedures, and to check for valid options. It uses the GNU \fBgetopt\fP(3) routines to do this.
 .sp
-The parameters \fBgetopt\fP is called with can be divided into two parts: options which modify the way \fBgetopt\fP will do the parsing (the \fIoptions\fP and the \fIoptstring\fP in the \fBSYNOPSIS\fP), and the parameters which are to be parsed (\fIparameters\fP in the \fBSYNOPSIS\fP). The second part will start at the first non\-option parameter that is not an option argument, or after the first occurrence of \*(Aq\fB\-\-\fP\*(Aq. If no \*(Aq\fB\-o\fP\*(Aq or \*(Aq\fB\-\-options\fP\*(Aq option is found in the first part, the first parameter of the second part is used as the short options string.
+The parameters \fBugetopt\fP is called with can be divided into two parts: options which modify the way \fBugetopt\fP will do the parsing (the \fIoptions\fP and the \fIoptstring\fP in the \fBSYNOPSIS\fP), and the parameters which are to be parsed (\fIparameters\fP in the \fBSYNOPSIS\fP). The second part will start at the first non\-option parameter that is not an option argument, or after the first occurrence of \*(Aq\fB\-\-\fP\*(Aq. If no \*(Aq\fB\-o\fP\*(Aq or \*(Aq\fB\-\-options\fP\*(Aq option is found in the first part, the first parameter of the second part is used as the short options string.
 .sp
-If the environment variable \fBGETOPT_COMPATIBLE\fP is set, or if the first \fIparameter\fP is not an option (does not start with a \*(Aq\fB\-\fP\*(Aq, the first format in the \fBSYNOPSIS\fP), \fBgetopt\fP will generate output that is compatible with that of other versions of \fBgetopt\fP(1). It will still do parameter shuffling and recognize optional arguments (see the \fBCOMPATIBILITY\fP section for more information).
+If the environment variable \fBGETOPT_COMPATIBLE\fP is set, or if the first \fIparameter\fP is not an option (does not start with a \*(Aq\fB\-\fP\*(Aq, the first format in the \fBSYNOPSIS\fP), \fBugetopt\fP will generate output that is compatible with that of other versions of \fBgetopt\fP(1). It will still do parameter shuffling and recognize optional arguments (see the \fBCOMPATIBILITY\fP section for more information).
 .sp
-Traditional implementations of \fBgetopt\fP(1) are unable to cope with whitespace and other (shell\-specific) special characters in arguments and non\-option parameters. To solve this problem, this implementation can generate quoted output which must once again be interpreted by the shell (usually by using the \fBeval\fP command). This has the effect of preserving those characters, but you must call \fBgetopt\fP in a way that is no longer compatible with other versions (the second or third format in the \fBSYNOPSIS\fP). To determine whether this enhanced version of \fBgetopt\fP(1) is installed, a special test option (\fB\-T\fP) can be used.
+Traditional implementations of \fBgetopt\fP(1) are unable to cope with whitespace and other (shell\-specific) special characters in arguments and non\-option parameters. To solve this problem, this implementation can generate quoted output which must once again be interpreted by the shell (usually by using the \fBeval\fP command). This has the effect of preserving those characters, but you must call \fBugetopt\fP in a way that is no longer compatible with other versions (the second or third format in the \fBSYNOPSIS\fP). To determine whether this enhanced version of \fBgetopt\fP(1) is installed, a special test option (\fB\-T\fP) can be used.
 .SH "OPTIONS"
 .sp
 \fB\-a\fP, \fB\-\-alternative\fP
@@ -59,12 +59,12 @@ The long (multi\-character) options to be recognized. More than one option name 
 .sp
 \fB\-n\fP, \fB\-\-name\fP \fIprogname\fP
 .RS 4
-The name that will be used by the \fBgetopt\fP(3) routines when it reports errors. Note that errors of \fBgetopt\fP(1) are still reported as coming from getopt.
+The name that will be used by the \fBgetopt\fP(3) routines when it reports errors. Note that errors of \fBugetopt\fP(1) are still reported as coming from getopt.
 .RE
 .sp
 \fB\-o\fP, \fB\-\-options\fP \fIshortopts\fP
 .RS 4
-The short (one\-character) options to be recognized. If this option is not found, the first parameter of \fBgetopt\fP that does not start with a \*(Aq\fB\-\fP\*(Aq (and is not an option argument) is used as the short options string. Each short option character in \fIshortopts\fP may be followed by one colon to indicate it has a required argument, and by two colons to indicate it has an optional argument. The first character of shortopts may be \*(Aq\fB+\fP\*(Aq or \*(Aq\fB\-\fP\*(Aq to influence the way options are parsed and output is generated (see the \fBSCANNING MODES\fP section for details).
+The short (one\-character) options to be recognized. If this option is not found, the first parameter of \fBugetopt\fP that does not start with a \*(Aq\fB\-\fP\*(Aq (and is not an option argument) is used as the short options string. Each short option character in \fIshortopts\fP may be followed by one colon to indicate it has a required argument, and by two colons to indicate it has an optional argument. The first character of shortopts may be \*(Aq\fB+\fP\*(Aq or \*(Aq\fB\-\fP\*(Aq to influence the way options are parsed and output is generated (see the \fBSCANNING MODES\fP section for details).
 .RE
 .sp
 \fB\-q\fP, \fB\-\-quiet\fP
@@ -84,7 +84,7 @@ Set quoting conventions to those of \fIshell\fP. If the \fB\-s\fP option is not 
 .sp
 \fB\-T\fP, \fB\-\-test\fP
 .RS 4
-Test if your \fBgetopt\fP(1) is this enhanced version or an old version. This generates no output, and sets the error status to 4. Other implementations of \fBgetopt\fP(1), and this version if the environment variable \fBGETOPT_COMPATIBLE\fP is set, will return \*(Aq\fB\-\-\fP\*(Aq and error status 0.
+Test if your \fBugetopt\fP(1) is this enhanced version or an old version. This generates no output, and sets the error status to 4. Other implementations of \fBgetopt\fP(1), and this version if the environment variable \fBGETOPT_COMPATIBLE\fP is set, will return \*(Aq\fB\-\-\fP\*(Aq and error status 0.
 .RE
 .sp
 \fB\-u\fP, \fB\-\-unquoted\fP
@@ -103,7 +103,7 @@ Print version and exit.
 .RE
 .SH "PARSING"
 .sp
-This section specifies the format of the second part of the parameters of \fBgetopt\fP (the \fIparameters\fP in the \fBSYNOPSIS\fP). The next section (\fBOUTPUT\fP) describes the output that is generated. These parameters were typically the parameters a shell function was called with. Care must be taken that each parameter the shell function was called with corresponds to exactly one parameter in the parameter list of \fBgetopt\fP (see the \fBEXAMPLES\fP). All parsing is done by the GNU \fBgetopt\fP(3) routines.
+This section specifies the format of the second part of the parameters of \fBugetopt\fP (the \fIparameters\fP in the \fBSYNOPSIS\fP). The next section (\fBOUTPUT\fP) describes the output that is generated. These parameters were typically the parameters a shell function was called with. Care must be taken that each parameter the shell function was called with corresponds to exactly one parameter in the parameter list of \fBugetopt\fP (see the \fBEXAMPLES\fP). All parsing is done by the GNU \fBgetopt\fP(3) routines.
 .sp
 The parameters are parsed from left to right. Each parameter is classified as a short option, a long option, an argument to an option, or a non\-option parameter.
 .sp
@@ -145,14 +145,14 @@ If the first character is a \*(Aq\fB\-\fP\*(Aq, non\-option parameters are outpu
 .sp
 This version of \fBgetopt\fP(1) is written to be as compatible as possible to other versions. Usually you can just replace them with this version without any modifications, and with some advantages.
 .sp
-If the first character of the first parameter of getopt is not a \*(Aq\fB\-\fP\*(Aq, \fBgetopt\fP goes into compatibility mode. It will interpret its first parameter as the string of short options, and all other arguments will be parsed. It will still do parameter shuffling (i.e., all non\-option parameters are output at the end), unless the environment variable \fBPOSIXLY_CORRECT\fP is set, in which case, \fBgetopt\fP will prepend a \*(Aq\fB+\fP\*(Aq before short options automatically.
+If the first character of the first parameter of getopt is not a \*(Aq\fB\-\fP\*(Aq, \fBugetopt\fP goes into compatibility mode. It will interpret its first parameter as the string of short options, and all other arguments will be parsed. It will still do parameter shuffling (i.e., all non\-option parameters are output at the end), unless the environment variable \fBPOSIXLY_CORRECT\fP is set, in which case, \fBugetopt\fP will prepend a \*(Aq\fB+\fP\*(Aq before short options automatically.
 .sp
-The environment variable \fBGETOPT_COMPATIBLE\fP forces \fBgetopt\fP into compatibility mode. Setting both this environment variable and \fBPOSIXLY_CORRECT\fP offers 100% compatibility for \*(Aqdifficult\*(Aq programs. Usually, though, neither is needed.
+The environment variable \fBGETOPT_COMPATIBLE\fP forces \fBugetopt\fP into compatibility mode. Setting both this environment variable and \fBPOSIXLY_CORRECT\fP offers 100% compatibility for \*(Aqdifficult\*(Aq programs. Usually, though, neither is needed.
 .sp
 In compatibility mode, leading \*(Aq\fB\-\fP\*(Aq and \*(Aq\fB+\fP\*(Aq characters in the short options string are ignored.
 .SH "RETURN CODES"
 .sp
-\fBgetopt\fP returns error code \fB0\fP for successful parsing, \fB1\fP if \fBgetopt\fP(3) returns errors, \fB2\fP if it does not understand its own parameters, \fB3\fP if an internal error occurs like out\-of\-memory, and \fB4\fP if it is called with \fB\-T\fP.
+\fBugetopt\fP returns error code \fB0\fP for successful parsing, \fB1\fP if \fBgetopt\fP(3) returns errors, \fB2\fP if it does not understand its own parameters, \fB3\fP if an internal error occurs like out\-of\-memory, and \fB4\fP if it is called with \fB\-T\fP.
 .SH "EXAMPLES"
 .sp
 Example scripts for (ba)sh and (t)csh are provided with the \fBgetopt\fP(1) distribution, and are installed in \fI{package\-docdir}\fP directory.
@@ -165,7 +165,7 @@ This environment variable is examined by the \fBgetopt\fP(3) routines. If it is 
 .sp
 \fBGETOPT_COMPATIBLE\fP
 .RS 4
-Forces \fBgetopt\fP to use the first calling format as specified in the \fBSYNOPSIS\fP.
+Forces \fBugetopt\fP to use the first calling format as specified in the \fBSYNOPSIS\fP.
 .RE
 .SH "BUGS"
 .sp

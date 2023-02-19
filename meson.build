@@ -22,4 +22,4 @@ executable(
     install: true,
 )
 
-install_man('getopt.1')
+install_man('ugetopt.1')
